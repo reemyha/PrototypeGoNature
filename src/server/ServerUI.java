@@ -1,32 +1,25 @@
 package server;
 
-import javafx.stage.Stage;
-
-import server.EchoServer;
-import gui.ServerFrameController;
 import javafx.application.Application;
+import javafx.stage.Stage;
+import gui.ServerFrameController;
+import java.util.Vector;
+import Server.EchoServer;
 
 public class ServerUI extends Application {
-	
-	
-	//final public static int DEFAULT_PORT = 5555;
-	//initalizing it 
-	public static void main( String args[] ) throws Exception 
-	{   
-		launch(args);
+	final public static int DEFAULT_PORT = 5555;
+
+	public static void main( String args[] ) throws Exception
+	   {   
+		 launch(args);
 	  } // end main
-	
-	
-	
-	//starts the server primary stage.
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-						  		
-		//ServerFrameController aFrame = new ServerFrameController(); // create StudentFrame
+		// TODO Auto-generated method stub				  		
+		ServerFrameController aFrame = new ServerFrameController(); // create StudentFrame
 		 
-		//aFrame.start(primaryStage);
-		
+		aFrame.start(primaryStage);
 	}
 	
 	public static void runServer(String p)
