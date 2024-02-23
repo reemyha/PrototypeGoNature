@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,42 +26,41 @@
             <TextFlow>
                <children>
                   <Label text="Order Number: " textFill="#692929" />
-                  <Label text="placeholdertext" />
+                  <Label fx:id="orderNumberT" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutX="1.0" layoutY="28.0">
                <children>
                   <Label text="Park Name: " textFill="#692929" />
-                  <TextField id="lblName" fx:id="txtName1" text="placeholdertext" />
+                  <Label fx:id="parkNameT" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutX="2.0" layoutY="57.0">
                <children>
                   <Label text="Telephone: " textFill="#692929" />
-                  <TextField id="lblName" fx:id="txtName" text="placeholdertext" />
+                  <Label fx:id="telephoneT" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutX="2.0" layoutY="89.0">
                <children>
                   <Label text="Email: " textFill="#692929" />
-                  <Label text="placeholdertext" />
+                  <Label fx:id="emailT" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutY="119.0">
                <children>
                   <Label text="Date: " textFill="#692929" />
-                  <Label prefHeight="17.0" prefWidth="89.0" text="placeholdertext" />
+                  <Label fx:id="dateT" prefHeight="17.0" prefWidth="89.0" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutY="149.0">
                <children>
-                  <Label text="Number of Tickets: " textFill="#692929" />
-                  <Label text="placeholdertext" />
+                  <Label text="Number of Attendees: " textFill="#692929" />
+                  <Label fx:id="attendeesT" text="placeholdertext" />
                </children>
             </TextFlow>
          </children>
       </Pane>
-      <Button layoutX="94.0" layoutY="290.0" mnemonicParsing="false" text="Save" />
-      <Button layoutX="269.0" layoutY="290.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="back" layoutX="176.0" layoutY="293.0" mnemonicParsing="false" text="Back" onAction="#backBtn"/>
    </children>
 </AnchorPane>

@@ -3,6 +3,7 @@ package common;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 public class DbController {
 	
@@ -58,6 +59,31 @@ public class DbController {
 		{
 			e.printStackTrace();}
 	}
-	
+	public void getOrderDetails(String orderNum) {
+        try {
+            String sql = "SELECT * FROM order WHERE ordernumber = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, orderNum);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+//                String telephone = rs.getString("telephone");
+//                String parkName = rs.getString("parkname");
+            	
+//				ToDo: add values to data structure
+//              
+//				  System.out.println("Telephone: " + telephone);
+//                System.out.println("Park Name: " + parkName);
+            } else {
+                System.out.println("Order with order number " + orderNum + " not found.");
+            }
+
+            rs.close();
+            pstmt.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	}
+
 
 }

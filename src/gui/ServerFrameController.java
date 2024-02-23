@@ -21,8 +21,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import Server.EchoServer;
-import Server.ServerUI;
+import server.EchoServer;
+import server.ServerUI;
 
 public class ServerFrameController  {
 	
@@ -56,7 +56,6 @@ public class ServerFrameController  {
 	     loader.setController(this); // Set the controller
 	     Parent root = loader.load();
 	     Scene scene = new Scene(root);
-	     scene.getStylesheets().add(getClass().getResource("/gui/serverScreen.css").toExternalForm());
 	     primaryStage.setTitle("Server");
 	     primaryStage.setScene(scene);
 	     primaryStage.show();  	

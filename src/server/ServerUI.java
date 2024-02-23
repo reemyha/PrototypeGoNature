@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import gui.ServerFrameController;
 import java.util.Vector;
-import Server.EchoServer;
+import server.EchoServer;
 
 public class ServerUI extends Application {
 	final public static int DEFAULT_PORT = 5555;

@@ -1,6 +1,6 @@
 package client;
 import common.ChatIF;
-import gui.ClientFrameController;
+import gui.LoginFrameController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -16,7 +16,9 @@ public class ClientUI extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		 chat= new ClientController("localhost", 5555);
-		// TODO Auto-generated method stub
+
+		LoginFrameController aFrame = new LoginFrameController(); // create StudentFrame		 
+		aFrame.start(primaryStage); 
 						 
 		 
 	}

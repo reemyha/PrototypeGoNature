@@ -8,15 +8,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="394.0" style="-fx-border-color: green; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="344.0" fitWidth="394.0" opacity="0.63">
          <image>
-            <Image url="@../../OneDrive%20-%20ort%20braude%20college%20of%20engineering/2024-02-18/2024-01-27/2024-01-27_18-57-22_7222.png" />
+            <Image url="@../gui/natureImage.png" />
          </image>
       </ImageView>
-      <Button layoutX="169.0" layoutY="172.0" mnemonicParsing="false" text="Login">
+      <Button fx:id="login" layoutX="169.0" layoutY="172.0" mnemonicParsing="false" onAction="#loginBtn" text="Login">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
