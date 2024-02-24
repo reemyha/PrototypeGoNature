@@ -21,6 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import logic.Order;
 import server.EchoServer;
 import server.ServerUI;
 
@@ -34,6 +35,19 @@ public class OrderDetailsScreen  {
 	private Button updateOrder = null;
 	
 	@FXML
+	private Label orderNumberT;
+	@FXML
+	private Label parkNameT;
+	@FXML
+	private Label telephoneT;
+	@FXML
+	private Label emailT;
+	@FXML
+	private Label dateT;
+	@FXML
+	private Label attendeesT;
+	
+	@FXML
 	private Button back = null;
 
 	public void backBtn(ActionEvent event) throws Exception {
@@ -43,6 +57,22 @@ public class OrderDetailsScreen  {
 		aFrame.start(primaryStage);
 	}
 
+	public void loadOrder(Order o) {
+//		this.s=s1;
+//		this.txtID.setText(s.getId());
+//		this.txtName.setText(s.getPName());
+//		this.txtSurname.setText(s.getLName());		
+//		this.cmbFaculty.setValue(s.getFc().getFName());
+		this.orderNumberT.setText(o.getOrderNumber());
+		this.parkNameT.setText(o.getParkName());
+		this.telephoneT.setText(o.getTelephone());
+		this.emailT.setText(o.getEmail());
+		this.dateT.setText(o.getDate());
+		this.attendeesT.setText(o.getAttendees());
+	
+	
+	}
+	
 	public void start(Stage primaryStage) throws Exception {	
 		 System.out.println("enterstart");
 	     FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/orderDetailsScreen.fxml"));
@@ -53,6 +83,8 @@ public class OrderDetailsScreen  {
 	     primaryStage.setScene(scene);
 	     primaryStage.show();  	
 	}
+	
+
 	
 
 }

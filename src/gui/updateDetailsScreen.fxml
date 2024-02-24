@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +15,7 @@
    <children>
       <ImageView fitHeight="344.0" fitWidth="394.0" opacity="0.63">
          <image>
-            <Image url="@../../OneDrive%20-%20ort%20braude%20college%20of%20engineering/2024-02-18/2024-01-27/2024-01-27_18-57-22_7222.png" />
+            <Image url="@../gui/natureImage.png" />
          </image>
       </ImageView>
       <Label blendMode="COLOR_DODGE" layoutX="83.0" layoutY="24.0" text="GoNature" textFill="#4cd989">
@@ -27,42 +28,42 @@
             <TextFlow>
                <children>
                   <Label text="Order Number: " textFill="#692929" />
-                  <Label text="placeholdertext" />
+                  <Label fx:id="orderNumberT" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutX="1.0" layoutY="28.0">
                <children>
                   <Label text="Park Name: " textFill="#692929" />
-                  <TextField id="lblName" fx:id="txtName1" text="placeholdertext" />
+                  <ComboBox fx:id="parkNameT" prefWidth="150.0" />
                </children>
             </TextFlow>
             <TextFlow layoutX="2.0" layoutY="57.0">
                <children>
                   <Label text="Telephone: " textFill="#692929" />
-                  <TextField id="lblName" fx:id="txtName" text="placeholdertext" />
+                  <TextField id="lblName" fx:id="telephoneT" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutX="2.0" layoutY="89.0">
                <children>
                   <Label text="Email: " textFill="#692929" />
-                  <Label text="placeholdertext" />
+                  <Label fx:id="emailT" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutY="119.0">
                <children>
                   <Label text="Date: " textFill="#692929" />
-                  <Label prefHeight="17.0" prefWidth="89.0" text="placeholdertext" />
+                  <Label fx:id="dateT" prefHeight="17.0" prefWidth="89.0" text="placeholdertext" />
                </children>
             </TextFlow>
             <TextFlow layoutY="149.0">
                <children>
                   <Label text="Number of Tickets: " textFill="#692929" />
-                  <Label text="placeholdertext" />
+                  <Label fx:id="attendeesT" text="placeholdertext" />
                </children>
             </TextFlow>
          </children>
       </Pane>
-      <Button layoutX="94.0" layoutY="290.0" mnemonicParsing="false" text="Save" />
-      <Button fx:id="backBtn" layoutX="269.0" layoutY="290.0" mnemonicParsing="false" text="Back" onAction="#backBtn" />
+      <Button fx:id="save" layoutX="94.0" layoutY="290.0" mnemonicParsing="false" onAction="#saveBtn" text="Save" />
+      <Button fx:id="back" layoutX="269.0" layoutY="290.0" mnemonicParsing="false" onAction="#backBtn" text="Back" />
    </children>
 </AnchorPane>

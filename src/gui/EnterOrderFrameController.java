@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import client.ChatClient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,18 +33,27 @@ public class EnterOrderFrameController  {
 	private Button showOrder = null;
 	@FXML
 	private Button updateOrder = null;
+	@FXML
+	private TextField orderNumber;
+	
+	private String getOrderNumber() {
+		return orderNumber.getText();
+	}
 	
 	public void updateOrderBtn(ActionEvent event) throws Exception {
 		((Node)event.getSource()).getScene().getWindow().hide(); //hiding primary window
 		Stage primaryStage = new Stage();
 		UpdateDetailsScreen aFrame = new UpdateDetailsScreen(); // create StudentFrame
+		//aFrame.setOrder(""");
 		aFrame.start(primaryStage);
 	}
 	public void showOrderBtn(ActionEvent event) throws Exception {
 		((Node)event.getSource()).getScene().getWindow().hide(); //hiding primary window
 		Stage primaryStage = new Stage();
 		OrderDetailsScreen aFrame = new OrderDetailsScreen(); // create StudentFrame
+		//aFrame.setOrder(""");
 		aFrame.start(primaryStage);
+
 	}
 	
 

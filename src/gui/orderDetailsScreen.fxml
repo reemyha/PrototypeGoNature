@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="344.0" fitWidth="394.0" opacity="0.63">
          <image>
-            <Image url="@../../OneDrive%20-%20ort%20braude%20college%20of%20engineering/2024-02-18/2024-01-27/2024-01-27_18-57-22_7222.png" />
+            <Image url="@../gui/natureImage.png" />
          </image>
       </ImageView>
       <Label blendMode="COLOR_DODGE" layoutX="83.0" layoutY="24.0" text="GoNature" textFill="#4cd989">

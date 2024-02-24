@@ -21,17 +21,33 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import logic.Student;
 import server.EchoServer;
 import server.ServerUI;
 
-public class UpdateDetailsScreen  {
+public class UpdateDetailsScreen implements Initializable  {
 	
 	public String defaultPort="5555";
 	
 	@FXML
-	private Button showOrder = null;
+	private Label orderNumberT;
 	@FXML
-	private Button updateOrder = null;
+	private ComboBox parkNameT;
+	@FXML
+	private TextField telephoneT;
+	@FXML
+	private Label emailT;
+	@FXML
+	private Label dateT;
+	@FXML
+	private Label attendeesT;
+	
+	@FXML
+	private Button saveBtn = null;
+	@FXML
+	private Button backBtn = null;
+	
+	ObservableList<String> list;
 	
 	public void backBtn(ActionEvent event) throws Exception {
 		((Node)event.getSource()).getScene().getWindow().hide(); //hiding primary window
@@ -39,6 +55,14 @@ public class UpdateDetailsScreen  {
 		EnterOrderFrameController aFrame = new EnterOrderFrameController(); // create StudentFrame
 		aFrame.start(primaryStage);
 	}
+	
+//	public void loadOrder(Order o) {
+//		this.s=s1;
+//		this.txtID.setText(s.getId());
+//		this.txtName.setText(s.getPName());
+//		this.txtSurname.setText(s.getLName());		
+//		this.cmbFaculty.setValue(s.getFc().getFName());
+//	}
 	
 
 	public void start(Stage primaryStage) throws Exception {	
@@ -52,5 +76,33 @@ public class UpdateDetailsScreen  {
 	     primaryStage.show();  	
 	}
 	
+	private String getParkName() {
+		return (String)parkNameT.getValue();
+	}
+	private String getTelephone() {
+		return telephoneT.getText();
+	}
+	public void saveBtn(ActionEvent event) throws Exception {
+		String newParkName = this.getParkName();
+		String newTelephone = this.getTelephone();
+	}
+	
+	 //creating list of Faculties
+	private void setComboBox() {
+		ArrayList<String> al = new ArrayList<String>();	
+		al.add("YellowStone");
+		al.add("Hyde Park");
+		al.add("Black Forest");
+
+		list = FXCollections.observableArrayList(al);
+		parkNameT.setItems(list);
+		parkNameT.getSelectionModel().select("Hyde Park");//getparkname
+		
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {	
+		setComboBox();		
+	}
 
 }
