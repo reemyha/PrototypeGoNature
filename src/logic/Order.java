@@ -16,12 +16,31 @@ public class Order {
 	private String attendees;
 
 	//Constructor for the order details
-	public Order(String orderNumber, String parkName, String telephone, String email, String date, String attendees) {
+	public Order() {
+
+	}
+
+	public void setOrderNumber(String orderNumber) {
 		this.orderNumber = orderNumber;
+	}
+
+	public void setParkName(String parkName) {
 		this.parkName = parkName;
+	}
+
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public void setAttendees(String attendees) {
 		this.attendees = attendees;
 	}
 

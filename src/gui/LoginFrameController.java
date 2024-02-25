@@ -3,6 +3,8 @@ package gui;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import client.ClientUI;
 import gui.EnterOrderFrameController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,7 +52,8 @@ public class LoginFrameController  {
 	     Scene scene = new Scene(root);
 	     primaryStage.setTitle("GoNature");
 	     primaryStage.setScene(scene);
-	     primaryStage.show();  	
+	     primaryStage.show();
+	     
 	}
 	
 	public void closeServerBtn(ActionEvent event) throws Exception {
