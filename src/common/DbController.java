@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import logic.Order;
 public class DbController {
 	
 	private static Connection conn = null;
@@ -75,13 +76,13 @@ public class DbController {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-//                String telephone = rs.getString("telephone");
-//                String parkName = rs.getString("parkname");
-            	
-//				ToDo: add values to data structure
-//              
-//				  System.out.println("Telephone: " + telephone);
-//                System.out.println("Park Name: " + parkName);
+            	Order o = new Order();
+            	o.setOrderNumber(rs.getString(0));
+            	o.setParkName(rs.getString(1));
+            	o.setDate(rs.getString(2));
+            	o.setAttendees(rs.getString(3));
+            	o.setTelephone(rs.getString(4));
+            	o.setEmail(rs.getString(5));
             } else {
                 System.out.println("Order with order number " + orderNum + " not found.");
             }

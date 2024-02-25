@@ -43,14 +43,16 @@ public class EnterOrderFrameController  {
 		((Node)event.getSource()).getScene().getWindow().hide(); //hiding primary window
 		Stage primaryStage = new Stage();
 		UpdateDetailsScreen aFrame = new UpdateDetailsScreen(); // create StudentFrame
-		//aFrame.setOrder(""");
+		//send order number to sql and he will return object order
+		//aFrame.loadOrder(order);
 		aFrame.start(primaryStage);
 	}
 	public void showOrderBtn(ActionEvent event) throws Exception {
 		((Node)event.getSource()).getScene().getWindow().hide(); //hiding primary window
 		Stage primaryStage = new Stage();
 		OrderDetailsScreen aFrame = new OrderDetailsScreen(); // create StudentFrame
-		//aFrame.setOrder(""");
+		//send order number to sql and he will return object order
+		//aFrame.loadOrder(order);
 		aFrame.start(primaryStage);
 
 	}
