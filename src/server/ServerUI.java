@@ -13,9 +13,9 @@ import common.DbController;
 
 public class ServerUI extends Application {
 	
-	private static Connection conn = null;
+	//private static Connection conn = null;
 	private static final int DEFAULT_PORT = 5555;
-    private static final String DB_URL = "jdbc:mysql://localhost/";
+    private static final String DB_URL = "jdbc:mysql://localhost/gonature?serverTimezone=IST";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "Aa123456";
     
