@@ -22,6 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import logic.Order;
 import server.EchoServer;
 import server.ServerUI;
 
@@ -36,6 +37,10 @@ public class EnterOrderFrameController  {
 	@FXML
 	private TextField orderNumber;
 	
+	public static boolean flag = false;
+	
+	private Order o;
+	
 	private String getOrderNumber() {
 		return orderNumber.getText();
 	}
@@ -43,12 +48,16 @@ public class EnterOrderFrameController  {
 	public void updateOrderBtn(ActionEvent event) throws Exception {
 		((Node)event.getSource()).getScene().getWindow().hide(); //hiding primary window
 		Stage primaryStage = new Stage();
-		UpdateDetailsScreen aFrame = new UpdateDetailsScreen(); // create StudentFrame
+		UpdateDetailsScreen aFrame = new UpdateDetailsScreen();
 		//send order number to sql and he will return object order
 		String oNum = getOrderNumber();
 		ClientUI.chat.show("SHOW",oNum);
-		aFrame.loadOrder(ClientUI.chat.o);
+		while(flag == false) {
+			o =ClientUI.chat.getO();			
+		}
+		flag = false;
 		aFrame.start(primaryStage);
+		aFrame.loadOrder(o);
 	}
 	public void showOrderBtn(ActionEvent event) throws Exception {
 		((Node)event.getSource()).getScene().getWindow().hide(); //hiding primary window
@@ -57,14 +66,18 @@ public class EnterOrderFrameController  {
 		//send order number to sql and he will return object order
 		String oNum = getOrderNumber();
 		ClientUI.chat.show("SHOW",oNum);
-		aFrame.loadOrder(ClientUI.chat.o);
+		while(flag == false) {
+			o =ClientUI.chat.getO();			
+		}
+		flag = false;
 		aFrame.start(primaryStage);
+		aFrame.loadOrder();
 
 	}
 	
 
 	public void start(Stage primaryStage) throws Exception {	
-		 System.out.println("enterstart");
+
 	     FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/enterOrderScreen.fxml"));
 	     loader.setController(this); // Set the controller
 	     Parent root = loader.load();

@@ -60,19 +60,22 @@ public class UpdateDetailsScreen implements Initializable  {
 	
 	public void loadOrder(Order o) {
 		this.o = o;
-		this.orderNumberT.setText(o.getOrderNumber());
-		this.parkNameT.getSelectionModel().select(o.getParkName());//getparkname
-		this.telephoneT.setText(o.getTelephone());
-		this.emailT.setText(o.getEmail());
-		this.dateT.setText(o.getDate());
-		this.attendeesT.setText(o.getAttendees());
-	
-	
-	}
+        if (o != null) {
+            this.orderNumberT.setText(o.getOrderNumber());
+            this.parkNameT.getSelectionModel().select(o.getParkName());//getparkname
+            this.telephoneT.setText(o.getTelephone());
+            this.emailT.setText(o.getEmail());
+            this.dateT.setText(o.getDate());
+            this.attendeesT.setText(o.getAttendees());
+        } else {
+            // Handle the case where 'o' is null, e.g., log an error or show a message
+            System.out.println("Error: Order object is null");
+        }
+
+    }
 	
 
 	public void start(Stage primaryStage) throws Exception {	
-		 System.out.println("enterstart");
 	     FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/updateDetailsScreen.fxml"));
 	     loader.setController(this); // Set the controller
 	     Parent root = loader.load();
@@ -93,7 +96,7 @@ public class UpdateDetailsScreen implements Initializable  {
 		String newParkName = this.getParkName();
 		String newTelephone = this.getTelephone();
 		
-		ClientUI.chat.update("UPDATE",o.getOrderNumber(),newParkName,newTelephone);
+		ClientUI.chat.update("UPDATE",o.getOrderNumber(),newTelephone,newParkName);
 		System.out.println("Update Complete");  
 		
 	}

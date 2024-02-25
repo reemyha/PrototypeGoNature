@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import client.ClientUI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,8 +60,8 @@ public class OrderDetailsScreen  {
 		aFrame.start(primaryStage);
 	}
 
-	public void loadOrder(Order o) {
-		this.o = o;
+	public void loadOrder() {
+		this.o = ClientUI.chat.getO();
 		this.orderNumberT.setText(o.getOrderNumber());
 		this.parkNameT.setText(o.getParkName());
 		this.telephoneT.setText(o.getTelephone());

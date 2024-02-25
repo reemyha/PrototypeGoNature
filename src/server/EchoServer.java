@@ -6,11 +6,11 @@ package server;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Vector;
+
+import client.ClientUI;
 import common.DbController;
-
-
+import logic.Order;
 import ocsf.server.*;
 
 /**
@@ -27,9 +27,11 @@ import ocsf.server.*;
 public class EchoServer extends AbstractServer 
 {
 	
-	
+	//private String db_url, db_name, db_password;
+	public static DbController Dbcontroller = null;
 	private static Connection conn = null;
-    private static final String DB_URL = "jdbc:mysql://localhost/sys?serverTimezone=IST";
+	
+    private static final String DB_URL = "jdbc:mysql://localhost/gonature?serverTimezone=IST";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "Aa123456";
   //Class variables *************************************************
@@ -63,16 +65,60 @@ public class EchoServer extends AbstractServer
    * @param client The connection from which the message originated.
    * @param 
    */
-  public void handleMessageFromClient  (Object msg, ConnectionToClient client)
+  
+  
+  
+  public void handleMessageFromClient (Object msg, ConnectionToClient client)
   {
+	  //get order number and send to user the sql data
+	  System.out.println("Message received: " + msg + " from " + client);  
+	  DbController dbController = new DbController();
+
+	    if (msg instanceof String[]) {
+	        String[] order = (String[]) msg;
+	        if (order[0].equals("SHOW")) {
+	            // Retrieve order details
+
+				Order orderDetails = dbController.getOrderDetails(order[1]);
+				// Send the order details back to the client
+				try {
+					//sendToAllClients(orderDetails);
+					client.sendToClient(orderDetails);
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        } else if (order[0].equals("UPDATE")) {
+	            try {
+	                // Placeholder for the UPDATE case
+	                // Extract values from 'order' array and call the update method
+	                String orderNum = order[1];
+	                String telephone = order[2];
+	                String parkName = order[3];
+	                dbController.Update(orderNum, telephone, parkName);
+	                
+	                // Optionally, you can send a confirmation message back to the client
+	                //client.sendToClient("UPDATE_SUCCESS");
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	                // Handle the error accordingly for UPDATE
+	            }
+	        } else {
+	        	try {
+	        		sendToAllClients(msg);
+					client.sendToClient(msg);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+	        }
+	    }
+	}
 	  
-	  //get ordernumber and send to user the sql data
 	  
-	  System.out.println("Message received: " + msg + " from " + client);   
-	    
-	    
-	    
-  }
+		  
+	   
+ 
    
   /**
    * This method overrides the one in the superclass.  Called
@@ -81,28 +127,16 @@ public class EchoServer extends AbstractServer
  * @return 
  * @return 
    */
+ // private static Connection conn = null;
+  
   protected void serverStarted() {
 		System.out.println("Server listening for connections on port " + getPort());
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-			System.out.println("Driver definition succeed");
-		} catch (Exception ex) {
-			/* handle the error */
-			System.out.println("Driver definition failed");
-		}
-		try {
-			Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-			 if (conn.isValid(5)) { // Check if the connection is valid within 5 seconds
-			        System.out.println("Connection is valid. Connected to the database.");
-			    } else {
-			        System.out.println("Connection is not valid. Not connected to the database.");
-			    }
-			System.out.println("SQL connection succeed");
-		} catch (SQLException ex) {// handle any errors
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
-		}
+		
+		DbController dbController = new DbController();
+		// Establish a connection to the database when the server starts
+
+		conn = dbController.connectToDB();
+			
 	}
 
   /**

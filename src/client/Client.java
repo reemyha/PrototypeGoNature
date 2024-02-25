@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import common.ChatIF;
+import gui.EnterOrderFrameController;
 import logic.Order;
 import ocsf.client.AbstractClient;
 
@@ -46,9 +47,10 @@ public class Client extends AbstractClient
 	   */
 	  public void handleMessageFromServer(Object msg) 
 	  {
+
 		if(msg instanceof Order) {
-			clientUI.display(msg.toString());
 			ClientUI.chat.setO((Order)msg);
+			EnterOrderFrameController.flag = true;
 		}
 	  }
 
@@ -60,9 +62,12 @@ public class Client extends AbstractClient
 	   */
 	  public void handleMessageFromClientUI(String[] message)  
 	  {
+
 	    try
 	    {
+	    	System.out.println("sendtoserver");
 	    	sendToServer(message);
+	    	
 	    }
 	    catch(IOException e)
 	    {

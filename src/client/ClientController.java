@@ -23,6 +23,12 @@ public class ClientController implements ChatIF
 
 
 
+	public Order getO() {
+		return o;
+	}
+
+
+
 	/**
 	   * Constructs an instance of the ClientConsole UI.
 	   *
@@ -64,15 +70,12 @@ public class ClientController implements ChatIF
 		  String[] msg = new String[] {flag,oNum,newParkName,newTelephone};
 		  client.handleMessageFromClientUI(msg);
 	}
-	/**
-	 * This method overrides the method in the ChatIF interface.  It
-	 * displays a message onto the screen.
-	 *
-	 * @param message The string to be displayed.
-	 */
+
+
+	@Override
 	public void display(String message) 
-	{
-		System.out.println("> " + message);
-	}
+	  {
+	    System.out.println("> " + message);
+	  }
 
 }
