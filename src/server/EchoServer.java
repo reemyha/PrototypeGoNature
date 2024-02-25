@@ -65,6 +65,9 @@ public class EchoServer extends AbstractServer
    */
   public void handleMessageFromClient  (Object msg, ConnectionToClient client)
   {
+	  
+	  //get ordernumber and send to user the sql data
+	  
 	  System.out.println("Message received: " + msg + " from " + client);   
 	    
 	    

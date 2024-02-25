@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import client.ClientUI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,6 +45,9 @@ public class EnterOrderFrameController  {
 		Stage primaryStage = new Stage();
 		UpdateDetailsScreen aFrame = new UpdateDetailsScreen(); // create StudentFrame
 		//send order number to sql and he will return object order
+		String oNum = getOrderNumber();
+		ClientUI.chat.accept(oNum);
+		//get order from server??????
 		//aFrame.loadOrder(order);
 		aFrame.start(primaryStage);
 	}
