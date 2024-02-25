@@ -46,9 +46,8 @@ public class EnterOrderFrameController  {
 		UpdateDetailsScreen aFrame = new UpdateDetailsScreen(); // create StudentFrame
 		//send order number to sql and he will return object order
 		String oNum = getOrderNumber();
-		ClientUI.chat.accept(oNum);
-		//get order from server??????
-		//aFrame.loadOrder(order);
+		ClientUI.chat.show("SHOW",oNum);
+		aFrame.loadOrder(ClientUI.chat.o);
 		aFrame.start(primaryStage);
 	}
 	public void showOrderBtn(ActionEvent event) throws Exception {
@@ -56,7 +55,9 @@ public class EnterOrderFrameController  {
 		Stage primaryStage = new Stage();
 		OrderDetailsScreen aFrame = new OrderDetailsScreen(); // create StudentFrame
 		//send order number to sql and he will return object order
-		//aFrame.loadOrder(order);
+		String oNum = getOrderNumber();
+		ClientUI.chat.show("SHOW",oNum);
+		aFrame.loadOrder(ClientUI.chat.o);
 		aFrame.start(primaryStage);
 
 	}

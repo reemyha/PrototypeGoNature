@@ -3,6 +3,7 @@ package client;
 import java.io.IOException;
 
 import common.ChatIF;
+import logic.Order;
 
 public class ClientController implements ChatIF 
 {
@@ -13,10 +14,16 @@ public class ClientController implements ChatIF
 	   
 	  //The instance of the client that created this ConsoleChat.
 	  Client client;
-
+	  
+	  public Order o;
+	  public void setO(Order o) {
+		  this.o = o;
+	  }
 	  //Constructors ****************************************************
 
-	  /**
+
+
+	/**
 	   * Constructs an instance of the ClientConsole UI.
 	   *
 	   * @param host The host to connect to.
@@ -42,21 +49,30 @@ public class ClientController implements ChatIF
 	  /**
 	   * This method waits for input from the console.  Once it is 
 	   * received, it sends it to the client's message handler.
+	 * @param oNum 
 	   */
-	  public void accept(String str) 
+	  public void show(String flag, String oNum) 
 	  {
-		  client.handleMessageFromClientUI(str);
+		  String[] msg = new String[] {flag,oNum};
+		  client.handleMessageFromClientUI(msg);
 	  }
 	  
-	  /**
-	   * This method overrides the method in the ChatIF interface.  It
-	   * displays a message onto the screen.
-	   *
-	   * @param message The string to be displayed.
-	   */
-	  public void display(String message) 
-	  {
-	    System.out.println("> " + message);
-	  }
+
+
+	public void update(String flag, String oNum, String newParkName, String newTelephone) {
+		// TODO Auto-generated method stub
+		  String[] msg = new String[] {flag,oNum,newParkName,newTelephone};
+		  client.handleMessageFromClientUI(msg);
+	}
+	/**
+	 * This method overrides the method in the ChatIF interface.  It
+	 * displays a message onto the screen.
+	 *
+	 * @param message The string to be displayed.
+	 */
+	public void display(String message) 
+	{
+		System.out.println("> " + message);
+	}
 
 }

@@ -3,7 +3,8 @@ package gui;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
+import logic.Order;
+import client.ClientUI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,7 +32,7 @@ public class UpdateDetailsScreen implements Initializable  {
 	@FXML
 	private Label orderNumberT;
 	@FXML
-	private ComboBox parkNameT;
+	private ComboBox<String> parkNameT;
 	@FXML
 	private TextField telephoneT;
 	@FXML
@@ -46,6 +47,8 @@ public class UpdateDetailsScreen implements Initializable  {
 	@FXML
 	private Button backBtn = null;
 	
+	private Order o;
+	
 	ObservableList<String> list;
 	
 	public void backBtn(ActionEvent event) throws Exception {
@@ -55,13 +58,17 @@ public class UpdateDetailsScreen implements Initializable  {
 		aFrame.start(primaryStage);
 	}
 	
-//	public void loadOrder(Order o) {
-//		this.s=s1;
-//		this.txtID.setText(s.getId());
-//		this.txtName.setText(s.getPName());
-//		this.txtSurname.setText(s.getLName());		
-//		this.cmbFaculty.setValue(s.getFc().getFName());
-//	}
+	public void loadOrder(Order o) {
+		this.o = o;
+		this.orderNumberT.setText(o.getOrderNumber());
+		this.parkNameT.getSelectionModel().select(o.getParkName());//getparkname
+		this.telephoneT.setText(o.getTelephone());
+		this.emailT.setText(o.getEmail());
+		this.dateT.setText(o.getDate());
+		this.attendeesT.setText(o.getAttendees());
+	
+	
+	}
 	
 
 	public void start(Stage primaryStage) throws Exception {	
@@ -81,9 +88,14 @@ public class UpdateDetailsScreen implements Initializable  {
 	private String getTelephone() {
 		return telephoneT.getText();
 	}
+
 	public void saveBtn(ActionEvent event) throws Exception {
 		String newParkName = this.getParkName();
 		String newTelephone = this.getTelephone();
+		
+		ClientUI.chat.update("UPDATE",o.getOrderNumber(),newParkName,newTelephone);
+		System.out.println("Update Complete");  
+		
 	}
 	
 	 //creating list of Faculties
@@ -95,7 +107,7 @@ public class UpdateDetailsScreen implements Initializable  {
 
 		list = FXCollections.observableArrayList(al);
 		parkNameT.setItems(list);
-		parkNameT.getSelectionModel().select("Hyde Park");//getparkname
+
 		
 	}
 

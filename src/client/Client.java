@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import common.ChatIF;
+import logic.Order;
 import ocsf.client.AbstractClient;
 
 public class Client extends AbstractClient
@@ -45,15 +46,19 @@ public class Client extends AbstractClient
 	   */
 	  public void handleMessageFromServer(Object msg) 
 	  {
-	    clientUI.display(msg.toString());
+		if(msg instanceof Order) {
+			clientUI.display(msg.toString());
+			ClientUI.chat.setO((Order)msg);
+		}
 	  }
 
+	  
 	  /**
 	   * This method handles all data coming from the UI            
 	   *
 	   * @param message The message from the UI.    
 	   */
-	  public void handleMessageFromClientUI(String message)  
+	  public void handleMessageFromClientUI(String[] message)  
 	  {
 	    try
 	    {
@@ -66,19 +71,7 @@ public class Client extends AbstractClient
 	      quit();
 	    }
 	  }
-	  public void handleAccountFromClientUI(ArrayList<String> account)  
-	  {
-	    try
-	    {
-	    	sendToServer(account);
-	    }
-	    catch(IOException e)
-	    {
-	      clientUI.display
-	        ("Could not send message to server.  Terminating client.");
-	      quit();
-	    }
-	  }
+
 	  
 	  /**
 	   * This method terminates the client.

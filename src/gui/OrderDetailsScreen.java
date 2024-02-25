@@ -49,7 +49,9 @@ public class OrderDetailsScreen  {
 	
 	@FXML
 	private Button back = null;
-
+	
+	private Order o;
+	
 	public void backBtn(ActionEvent event) throws Exception {
 		((Node)event.getSource()).getScene().getWindow().hide(); //hiding primary window
 		Stage primaryStage = new Stage();
@@ -58,11 +60,7 @@ public class OrderDetailsScreen  {
 	}
 
 	public void loadOrder(Order o) {
-//		this.s=s1;
-//		this.txtID.setText(s.getId());
-//		this.txtName.setText(s.getPName());
-//		this.txtSurname.setText(s.getLName());		
-//		this.cmbFaculty.setValue(s.getFc().getFName());
+		this.o = o;
 		this.orderNumberT.setText(o.getOrderNumber());
 		this.parkNameT.setText(o.getParkName());
 		this.telephoneT.setText(o.getTelephone());
