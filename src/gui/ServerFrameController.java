@@ -26,7 +26,7 @@ import server.ServerUI;
 
 public class ServerFrameController  {
 	
-	public String defaultPort="5555";
+	public String defaultPort="5555";//TODO: PUT THIS AS AN ENUM IN A COMMON FOLDER
 	
 	@FXML
 	private Button startServer = null;

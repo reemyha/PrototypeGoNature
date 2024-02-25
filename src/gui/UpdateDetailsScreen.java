@@ -81,6 +81,7 @@ public class UpdateDetailsScreen implements Initializable  {
 	private String getTelephone() {
 		return telephoneT.getText();
 	}
+	
 	public void saveBtn(ActionEvent event) throws Exception {
 		String newParkName = this.getParkName();
 		String newTelephone = this.getTelephone();

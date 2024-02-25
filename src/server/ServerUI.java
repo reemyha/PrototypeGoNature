@@ -29,43 +29,11 @@ public class ServerUI extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub				  		
-		ServerFrameController aFrame = new ServerFrameController(); // create StudentFrame
+		ServerFrameController aFrame = new ServerFrameController(); 
 		//conn = connectToDB();
 		 
 		aFrame.start(primaryStage);
 	}
-	
-	/*private Connection connectToDB() 
-	{
-		System.out.println("Connecting to DataBase");
-		if (conn == null) {
-			try 
-		{
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            System.out.println("Driver definition succeed");
-        } catch (Exception ex) {
-        	/* handle the error*/
-        	/* System.out.println("Driver definition failed");
-        	 }
-        
-        try 
-        {
-        	Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            //Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.3.68/test","root","Root");
-            System.out.println("SQL connection succeed");
-            return conn;
-        
-	 	} catch (SQLException ex) 
-		    {/* handle any errors*/
-	 		// handleException("Failed to connect to the database", ex);
-	    /*System.out.println("SQLException: " + ex.getMessage());
-	    System.out.println("SQLState: " + ex.getSQLState());
-	    System.out.println("VendorError: " + ex.getErrorCode());
-	    }
-        
-		}
-		return null;
-	}*/
 	
 	
 	

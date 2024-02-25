@@ -27,6 +27,8 @@ import ocsf.server.*;
 public class EchoServer extends AbstractServer 
 {
 	
+	//private String db_url, db_name, db_password;
+	public static DbController Dbcontroller = null;
 	
 	private static Connection conn = null;
     private static final String DB_URL = "jdbc:mysql://localhost/sys?serverTimezone=IST";
@@ -63,12 +65,13 @@ public class EchoServer extends AbstractServer
    * @param client The connection from which the message originated.
    * @param 
    */
+  
+  
+  
   public void handleMessageFromClient  (Object msg, ConnectionToClient client)
   {
 	  System.out.println("Message received: " + msg + " from " + client);   
-	    
-	    
-	    
+	   
   }
    
   /**
@@ -78,28 +81,14 @@ public class EchoServer extends AbstractServer
  * @return 
  * @return 
    */
+  
+  
   protected void serverStarted() {
 		System.out.println("Server listening for connections on port " + getPort());
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-			System.out.println("Driver definition succeed");
-		} catch (Exception ex) {
-			/* handle the error */
-			System.out.println("Driver definition failed");
-		}
-		try {
-			Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-			 if (conn.isValid(5)) { // Check if the connection is valid within 5 seconds
-			        System.out.println("Connection is valid. Connected to the database.");
-			    } else {
-			        System.out.println("Connection is not valid. Not connected to the database.");
-			    }
-			System.out.println("SQL connection succeed");
-		} catch (SQLException ex) {// handle any errors
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
-		}
+		
+		Connection conn = null;
+		
+		
 	}
 
   /**
