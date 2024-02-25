@@ -9,6 +9,14 @@ public class DbController {
 	
 	private static Connection conn = null;
 	
+	private static String passwrd ;
+	private static String Username ;
+	
+	  /*public static void setDatabaseCredentials(String username, String password) {
+		  Username = username;
+	      passwrd = password;
+	    }*/
+	
 	public Connection connectToDB() 
 	{
 		System.out.println("Connecting to DataBase");
@@ -24,7 +32,7 @@ public class DbController {
         
         try 
         {
-        	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/new_method_test?serverTimezone=IST","root","Aa123456");
+        	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/?serverTimezone=IST","root","Aa123456");
             //Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.3.68/test","root","Root");
             System.out.println("SQL connection succeed");
             return conn;

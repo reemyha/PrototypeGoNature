@@ -15,6 +15,7 @@ public class Order {
 
 	private String attendees;
 
+	//Constructor for the order details
 	public Order(String orderNumber, String parkName, String telephone, String email, String date, String attendees) {
 		this.orderNumber = orderNumber;
 		this.parkName = parkName;
