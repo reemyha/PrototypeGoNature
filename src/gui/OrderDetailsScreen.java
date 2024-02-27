@@ -61,7 +61,7 @@ public class OrderDetailsScreen  {
 	}
 
 	public void loadOrder() {
-		this.o = ClientUI.chat.getO();
+		this.o = LoginFrameController.chat.getO();
 		this.orderNumberT.setText(o.getOrderNumber());
 		this.parkNameT.setText(o.getParkName());
 		this.telephoneT.setText(o.getTelephone());

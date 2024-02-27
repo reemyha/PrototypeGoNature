@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 public class ClientUI extends Application { 
 	
-	public static ClientController chat; //only one instance
+	//public static ClientController chat; //only one instance
 
 	public static void main( String args[] ) throws Exception
 	   { 
@@ -15,7 +15,7 @@ public class ClientUI extends Application {
 	 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		 chat= new ClientController("localhost", 5555);
+		//chat= new ClientController("localhost", 5555);
 
 		LoginFrameController aFrame = new LoginFrameController(); // create StudentFrame		 
 		aFrame.start(primaryStage); 

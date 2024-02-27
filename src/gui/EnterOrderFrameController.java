@@ -51,9 +51,9 @@ public class EnterOrderFrameController  {
 		UpdateDetailsScreen aFrame = new UpdateDetailsScreen();
 		//send order number to sql and he will return object order
 		String oNum = getOrderNumber();
-		ClientUI.chat.show("SHOW",oNum);
+		LoginFrameController.chat.show("SHOW",oNum);
 		while(flag == false) {
-			o =ClientUI.chat.getO();			
+			o =LoginFrameController.chat.getO();			
 		}
 		flag = false;
 		aFrame.start(primaryStage);
@@ -65,9 +65,9 @@ public class EnterOrderFrameController  {
 		OrderDetailsScreen aFrame = new OrderDetailsScreen(); // create StudentFrame
 		//send order number to sql and he will return object order
 		String oNum = getOrderNumber();
-		ClientUI.chat.show("SHOW",oNum);
+		LoginFrameController.chat.show("SHOW",oNum);
 		while(flag == false) {
-			o =ClientUI.chat.getO();			
+			o =LoginFrameController.chat.getO();			
 		}
 		flag = false;
 		aFrame.start(primaryStage);

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import client.ClientController;
 import client.ClientUI;
 import gui.EnterOrderFrameController;
 import javafx.collections.FXCollections;
@@ -32,7 +33,18 @@ public class LoginFrameController  {
 	
 	@FXML
 	private Button login = null;
-
+	@FXML
+	private TextField ipAddressT;
+	@FXML
+	private TextField portT;
+	
+	private String getIpAddress() {
+		return ipAddressT.getText();
+	}
+	private Integer getPort() {
+		return Integer.valueOf(portT.getText());
+	}
+	public static ClientController chat;
 	
 	
 	public void loginBtn(ActionEvent event) throws Exception {
@@ -40,7 +52,9 @@ public class LoginFrameController  {
 		Stage primaryStage = new Stage();
 		EnterOrderFrameController aFrame = new EnterOrderFrameController(); // create StudentFrame
 		aFrame.start(primaryStage);
-		
+		getIpAddress();
+		getPort();
+		chat= new ClientController(getIpAddress(), getPort());
 		}
 	
 

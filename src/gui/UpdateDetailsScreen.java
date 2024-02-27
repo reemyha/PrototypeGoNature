@@ -96,7 +96,7 @@ public class UpdateDetailsScreen implements Initializable  {
 		String newParkName = this.getParkName();
 		String newTelephone = this.getTelephone();
 		
-		ClientUI.chat.update("UPDATE",o.getOrderNumber(),newTelephone,newParkName);
+		LoginFrameController.chat.update("UPDATE",o.getOrderNumber(),newTelephone,newParkName);
 		System.out.println("Update Complete");  
 		
 	}

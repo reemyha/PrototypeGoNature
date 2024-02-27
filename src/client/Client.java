@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import common.ChatIF;
 import gui.EnterOrderFrameController;
+import gui.LoginFrameController;
 import logic.Order;
 import ocsf.client.AbstractClient;
 
@@ -49,7 +50,7 @@ public class Client extends AbstractClient
 	  {
 
 		if(msg instanceof Order) {
-			ClientUI.chat.setO((Order)msg);
+			LoginFrameController.chat.setO((Order)msg);
 			EnterOrderFrameController.flag = true;
 		}
 	  }
